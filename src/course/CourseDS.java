@@ -244,8 +244,7 @@ public class CourseDS {
     }
 
     // Edits a course by it's id
-    public void EditCourse(int CourseID, String CourseName, int CourseCreditHrs, float CourseTotalMarks,
-            float CourseObtainedMarks) {
+    public void EditCourse(int CourseID, Course data) {
         int pos = searchByCourseId(CourseID);
         if (pos == -1) {
             System.out.println("Course does not exist");
@@ -257,9 +256,7 @@ public class CourseDS {
                 node = start;
                 for (int i = 1; i <= pos; i++) {
                     if (i == pos) {
-                        Course crs = new Course(CourseID, CourseName, CourseCreditHrs, CourseTotalMarks,
-                                CourseObtainedMarks);
-                        node.setData(crs);
+                        node.setData(data);
                     }
                     node = node.getNext();
                 }
