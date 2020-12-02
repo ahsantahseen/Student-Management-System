@@ -640,7 +640,8 @@ HowToUseBtn.add(HowToUseLabel);
       EventQueue.invokeLater(new Runnable() {
          public void run() {
             try {
-               new1 frame = new new1();               
+               new1 frame = new new1(); 
+               frame.setLocationRelativeTo(null);
             } catch (Exception e) {
                e.printStackTrace();
             }
