@@ -23,8 +23,8 @@ import java.awt.event.MouseMotionAdapter;
 public class login extends JFrame {
 
 	
-	private JTextField textField;
-	private JPasswordField textField_1;
+	private JTextField usernameInput;
+	private JPasswordField passwordInput;
 	private Point windowPosition = null; 
 	private JPanel contentPane;
 
@@ -75,23 +75,23 @@ public class login extends JFrame {
 		contentPane.add(headerBar);
 		headerBar.setLayout(null);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.addMouseListener(new MouseAdapter() {
+		JLabel closeButton = new JLabel("");
+		closeButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.exit(0);
 			}
 		});
-		label_1.setIcon(new ImageIcon(login.class.getResource("/imgs/remove.png")));
-		label_1.setBounds(375, 2, 18, 18);
-		headerBar.add(label_1);
+		closeButton.setIcon(new ImageIcon(login.class.getResource("/imgs/remove.png")));
+		closeButton.setBounds(375, 2, 18, 18);
+		headerBar.add(closeButton);
 		
 		JPanel contentPanel = new JPanel();
 		contentPanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textField.setBorder(null);
-				textField_1.setBorder(null);
+				usernameInput.setBorder(null);
+				passwordInput.setBorder(null);
 			}
 		});
 		contentPanel.setBounds(0, 22, 395, 765);
@@ -99,27 +99,27 @@ public class login extends JFrame {
 		contentPane.add(contentPanel);
 		contentPanel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Student Management System");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Yu Gothic", Font.BOLD, 21));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
-		lblNewLabel.setHorizontalTextPosition(SwingConstants.LEADING);
-		lblNewLabel.setBounds(31, 20, 334, 29);
-		contentPanel.add(lblNewLabel);
+		JLabel SMSHeading = new JLabel("Student Management System");
+		SMSHeading.setForeground(Color.WHITE);
+		SMSHeading.setFont(new Font("Yu Gothic", Font.BOLD, 21));
+		SMSHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		SMSHeading.setVerticalTextPosition(SwingConstants.BOTTOM);
+		SMSHeading.setVerticalAlignment(SwingConstants.TOP);
+		SMSHeading.setHorizontalTextPosition(SwingConstants.LEADING);
+		SMSHeading.setBounds(31, 20, 334, 29);
+		contentPanel.add(SMSHeading);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel_1.setIcon(new ImageIcon(login.class.getResource("/imgs/Capture.PNG")));
-		lblNewLabel_1.setBounds(1, -4, 395, 259);
-		contentPanel.add(lblNewLabel_1);
+		JLabel LoginPic = new JLabel("");
+		LoginPic.setHorizontalAlignment(SwingConstants.CENTER);
+		LoginPic.setHorizontalTextPosition(SwingConstants.CENTER);
+		LoginPic.setIcon(new ImageIcon(login.class.getResource("/imgs/Capture.PNG")));
+		LoginPic.setBounds(1, -4, 395, 259);
+		contentPanel.add(LoginPic);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(login.class.getResource("/imgs/unnamed.png")));
-		lblNewLabel_2.setBounds(-39, 190, 434, 106);
-		contentPanel.add(lblNewLabel_2);
+		JLabel shadow = new JLabel("");
+		shadow.setIcon(new ImageIcon(login.class.getResource("/imgs/unnamed.png")));
+		shadow.setBounds(-39, 190, 434, 106);
+		contentPanel.add(shadow);
 		
 		JLabel lblSignIn = new JLabel("Sign in with your credentials");
 		lblSignIn.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -131,39 +131,39 @@ public class login extends JFrame {
 		lblSignIn.setBounds(30, 278, 334, 29);
 		contentPanel.add(lblSignIn);
 		
-		textField = new JTextField();
-		textField.setForeground(Color.WHITE);
-		textField.setBackground(new Color(52,73,92));
-		textField.addMouseListener(new MouseAdapter() {
+		usernameInput = new JTextField();
+		usernameInput.setForeground(Color.WHITE);
+		usernameInput.setBackground(new Color(52,73,92));
+		usernameInput.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textField.setBorder(new LineBorder(Color.CYAN));
-				textField_1.setBorder(null);
+				usernameInput.setBorder(new LineBorder(Color.CYAN));
+				passwordInput.setBorder(null);
 			}
 			
 		});
 		
 		
-		textField.setBorder(null);
-		textField.setBounds(95, 350, 231, 29);
-		contentPanel.add(textField);
-		textField.setColumns(10);
+		usernameInput.setBorder(null);
+		usernameInput.setBounds(95, 350, 231, 29);
+		contentPanel.add(usernameInput);
+		usernameInput.setColumns(10);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(69, 468, 257, 37);
-		panel.setBackground(new Color(0,131,143));
-		contentPanel.add(panel);
-		panel.setLayout(null);
+		JPanel signInBtn = new JPanel();
+		signInBtn.setBounds(69, 468, 257, 37);
+		signInBtn.setBackground(new Color(0,131,143));
+		contentPanel.add(signInBtn);
+		signInBtn.setLayout(null);
 		
-		JLabel lblSignIn_1 = new JLabel("Sign In\r\n ");
-		lblSignIn_1.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblSignIn_1.setVerticalAlignment(SwingConstants.TOP);
-		lblSignIn_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblSignIn_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSignIn_1.setForeground(Color.WHITE);
-		lblSignIn_1.setFont(new Font("Yu Gothic", Font.BOLD, 18));
-		lblSignIn_1.setBounds(-38, 8, 334, 29);
-		panel.add(lblSignIn_1);
+		JLabel lblSignInBtnText = new JLabel("Sign In\r\n ");
+		lblSignInBtnText.setVerticalTextPosition(SwingConstants.BOTTOM);
+		lblSignInBtnText.setVerticalAlignment(SwingConstants.TOP);
+		lblSignInBtnText.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblSignInBtnText.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSignInBtnText.setForeground(Color.WHITE);
+		lblSignInBtnText.setFont(new Font("Yu Gothic", Font.BOLD, 18));
+		lblSignInBtnText.setBounds(-38, 8, 334, 29);
+		signInBtn.add(lblSignInBtnText);
 		
 		JLabel lblInOrderTo = new JLabel("in order to access the system\r\n");
 		lblInOrderTo.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -175,54 +175,54 @@ public class login extends JFrame {
 		lblInOrderTo.setBounds(32, 303, 334, 29);
 		contentPanel.add(lblInOrderTo);
 		
-		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon(login.class.getResource("/imgs/user.png")));
-		lblNewLabel_3.setBounds(68, 350, 29, 29);
-		contentPanel.add(lblNewLabel_3);
+		JLabel usernameLogo = new JLabel("");
+		usernameLogo.setIcon(new ImageIcon(login.class.getResource("/imgs/user.png")));
+		usernameLogo.setBounds(68, 350, 29, 29);
+		contentPanel.add(usernameLogo);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(login.class.getResource("/imgs/lock.png")));
-		label.setBounds(68, 381, 29, 29);
-		contentPanel.add(label);
+		JLabel passwordLogo = new JLabel("");
+		passwordLogo.setIcon(new ImageIcon(login.class.getResource("/imgs/lock.png")));
+		passwordLogo.setBounds(68, 381, 29, 29);
+		contentPanel.add(passwordLogo);
 		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(login.class.getResource("/imgs/a.png")));
-		lblNewLabel_4.setBounds(91, 534, 24, 24);
-		contentPanel.add(lblNewLabel_4);
+		JLabel lblCompanyLogo = new JLabel("");
+		lblCompanyLogo.setIcon(new ImageIcon(login.class.getResource("/imgs/a.png")));
+		lblCompanyLogo.setBounds(91, 534, 24, 24);
+		contentPanel.add(lblCompanyLogo);
 		
-		JLabel lblCopyrightsaaSoftarwez = new JLabel("Copyrights@AA Softarwez");
-		lblCopyrightsaaSoftarwez.setVerticalTextPosition(SwingConstants.BOTTOM);
-		lblCopyrightsaaSoftarwez.setVerticalAlignment(SwingConstants.TOP);
-		lblCopyrightsaaSoftarwez.setHorizontalTextPosition(SwingConstants.LEADING);
-		lblCopyrightsaaSoftarwez.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCopyrightsaaSoftarwez.setForeground(Color.WHITE);
-		lblCopyrightsaaSoftarwez.setFont(new Font("Yu Gothic", Font.BOLD, 14));
-		lblCopyrightsaaSoftarwez.setBounds(44, 538, 334, 29);
-		contentPanel.add(lblCopyrightsaaSoftarwez);
+		JLabel lblCopyRights = new JLabel("Copyrights@AA Softarwez");
+		lblCopyRights.setVerticalTextPosition(SwingConstants.BOTTOM);
+		lblCopyRights.setVerticalAlignment(SwingConstants.TOP);
+		lblCopyRights.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblCopyRights.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCopyRights.setForeground(Color.WHITE);
+		lblCopyRights.setFont(new Font("Yu Gothic", Font.BOLD, 14));
+		lblCopyRights.setBounds(44, 538, 334, 29);
+		contentPanel.add(lblCopyRights);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(66, 350, 29, 29);
-		panel_1.setBackground(new Color(52,73,94));
-		contentPanel.add(panel_1);
+		JPanel usernameLogoBox = new JPanel();
+		usernameLogoBox.setBounds(66, 350, 29, 29);
+		usernameLogoBox.setBackground(new Color(52,73,94));
+		contentPanel.add(usernameLogoBox);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(66, 381, 29, 29);
-		panel_2.setBackground(new Color(52,73,94));
-		contentPanel.add(panel_2);
+		JPanel passwordLogoBox = new JPanel();
+		passwordLogoBox.setBounds(66, 381, 29, 29);
+		passwordLogoBox.setBackground(new Color(52,73,94));
+		contentPanel.add(passwordLogoBox);
 		
-		textField_1 = new JPasswordField();
-		textField_1.setForeground(Color.WHITE);
-		textField_1.addMouseListener(new MouseAdapter() {
+		passwordInput = new JPasswordField();
+		passwordInput.setForeground(Color.WHITE);
+		passwordInput.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textField_1.setBorder(new LineBorder(Color.CYAN));
-				textField.setBorder(null);
+				passwordInput.setBorder(new LineBorder(Color.CYAN));
+				usernameInput.setBorder(null);
 			}
 		});
-		textField_1.setBorder(null);
-		textField_1.setBounds(95, 381, 231, 29);
-		textField_1.setBackground(new Color(52,73,94));
-		contentPanel.add(textField_1);
+		passwordInput.setBorder(null);
+		passwordInput.setBounds(95, 381, 231, 29);
+		passwordInput.setBackground(new Color(52,73,94));
+		contentPanel.add(passwordInput);
 	}
 	/**
 	 * Launch the application.
