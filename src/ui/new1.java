@@ -26,11 +26,22 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
 
 public class new1 extends JFrame {
    
    private Point windowPosition = null;         
    private JPanel contentPane;
+   private JTextField textField;
+   private JTextField textField_1;
+   private JTextField textField_2;
+   private JTextField textField_3;
+   private JTable table;
 
    public JFrame getWindow() { return this;}
 
@@ -40,7 +51,7 @@ public class new1 extends JFrame {
    public new1() {
       
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setBounds(100, 100, 1126, 608);
+      setBounds(100, 100, 1178, 608);
 
       setUndecorated(true);
       setVisible(true);
@@ -76,7 +87,7 @@ public class new1 extends JFrame {
       //TOP PANEL
       headerBar.setMaximumSize(new Dimension(2147483647, 32767));
       headerBar.setBackground(new Color(44, 62, 80));
-      headerBar.setBounds(0, 0, 1141, 22);
+      headerBar.setBounds(0, 0, 1178, 22);
       contentPane.add(headerBar);
       headerBar.setLayout(null);
       
@@ -188,28 +199,165 @@ public class new1 extends JFrame {
       
       JPanel contentArea = new JPanel();
       contentArea.setBackground(new Color(34, 47, 62));
-      contentArea.setBounds(245, 22, 881, 636);
+      contentArea.setBounds(245, 22, 933, 636);
       contentPane.add(contentArea);
       contentArea.setLayout(new CardLayout(0, 0));
       
       JPanel Departments = new JPanel();
+      Departments.setFont(new Font("Yu Gothic", Font.BOLD, 13));
      
       Departments.setBackground(new Color(34,47,62));
       contentArea.add(Departments, "name_6017372618579");
       Departments.setLayout(null);
       
-      JLabel lbldeptTest = new JLabel("Department");
-      lbldeptTest.setFont(new Font("Tahoma", Font.PLAIN, 18));
-      lbldeptTest.setForeground(Color.WHITE);
-      lbldeptTest.setBounds(205, 290, 280, 59);
-      Departments.add(lbldeptTest);
+      JLabel lblDepartmentsPanel = new JLabel("Department's Panel:");
+      lblDepartmentsPanel.setBounds(10, 11, 280, 35);
+      Departments.add(lblDepartmentsPanel);
+      lblDepartmentsPanel.setForeground(Color.WHITE);
+      lblDepartmentsPanel.setFont(new Font("Tahoma", Font.PLAIN, 18));
       
-      JLabel lblClickToView = new JLabel("Click to view Students in this dept");
+      JTextPane txtpnInThisPanel = new JTextPane();
+      txtpnInThisPanel.setEditable(false);
+      txtpnInThisPanel.setForeground(Color.ORANGE);
+      txtpnInThisPanel.setBackground(new Color(34,47,62));
+      txtpnInThisPanel.setText("In this panel, all the information related to the departments established in the institute is managed. \r\n");
+      txtpnInThisPanel.setFont(new Font("Yu Gothic", Font.BOLD, 14));
+      txtpnInThisPanel.setBounds(9, 40, 430, 59);
+      Departments.add(txtpnInThisPanel);
       
-      lblClickToView.setForeground(Color.WHITE);
-      lblClickToView.setFont(new Font("Tahoma", Font.PLAIN, 18));
-      lblClickToView.setBounds(205, 93, 280, 59);
-      Departments.add(lblClickToView);
+      JLabel lblDepartmentsId = new JLabel("Department's ID \r\n");
+      lblDepartmentsId.setHorizontalAlignment(SwingConstants.CENTER);
+      lblDepartmentsId.setForeground(Color.WHITE);
+      lblDepartmentsId.setFont(new Font("Tahoma", Font.PLAIN, 18));
+      lblDepartmentsId.setBounds(12, 154, 202, 35);
+      Departments.add(lblDepartmentsId);
+      
+      textField = new JTextField();
+      textField.setForeground(Color.WHITE);
+      textField.setBorder(null);
+      textField.setBounds(12, 200, 202, 27);
+      textField.setBackground(new Color(52,73,94));
+      Departments.add(textField);
+      textField.setColumns(10);
+      
+      JLabel lblDepartmentsName = new JLabel("Name of Department\r\n");
+      lblDepartmentsName.setHorizontalAlignment(SwingConstants.CENTER);
+      lblDepartmentsName.setForeground(Color.WHITE);
+      lblDepartmentsName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+      lblDepartmentsName.setBounds(224, 154, 202, 35);
+      Departments.add(lblDepartmentsName);
+      
+      textField_1 = new JTextField();
+      textField_1.setForeground(Color.WHITE);
+      textField_1.setBorder(null);
+      textField_1.setColumns(10);
+      textField_1.setBounds(224, 200, 202, 27);
+      textField_1.setBackground(new Color(52,73,94));
+      Departments.add(textField_1);
+      
+      JLabel lblDepartmentsNumberOf = new JLabel(" Number of Students\r\n\r\n");
+      lblDepartmentsNumberOf.setHorizontalAlignment(SwingConstants.CENTER);
+      lblDepartmentsNumberOf.setForeground(Color.WHITE);
+      lblDepartmentsNumberOf.setFont(new Font("Tahoma", Font.PLAIN, 18));
+      lblDepartmentsNumberOf.setBounds(643, 152, 203, 35);
+      Departments.add(lblDepartmentsNumberOf);
+      
+      textField_2 = new JTextField();
+      textField_2.setForeground(Color.WHITE);
+      textField_2.setBorder(null);
+      textField_2.setColumns(10);
+      textField_2.setBounds(644, 200, 202, 27);
+      textField_2.setBackground(new Color(52,73,94));
+      Departments.add(textField_2);
+      
+      JLabel lblDepartmentsHead = new JLabel("Head of Department\r\n");
+      lblDepartmentsHead.setHorizontalAlignment(SwingConstants.CENTER);
+      lblDepartmentsHead.setForeground(Color.WHITE);
+      lblDepartmentsHead.setFont(new Font("Tahoma", Font.PLAIN, 18));
+      lblDepartmentsHead.setBounds(431, 153, 202, 35);
+      Departments.add(lblDepartmentsHead);
+      
+      textField_3 = new JTextField();
+      textField_3.setForeground(Color.WHITE);
+      textField_3.setBorder(null);
+      textField_3.setColumns(10);
+      textField_3.setBounds(433, 200, 202, 27);
+      textField_3.setBackground(new Color(52,73,94));
+      Departments.add(textField_3);
+      
+      JScrollPane scrollPane = new JScrollPane();
+      scrollPane.setFont(new Font("Yu Gothic", Font.BOLD, 13));
+      scrollPane.setBorder(null);
+      scrollPane.setBackground(new Color(52,73,94));
+      
+      scrollPane.setBounds(10, 283, 852, 195);
+      Departments.add(scrollPane);
+      
+      table = new JTable();
+      table.setFont(new Font("Yu Gothic", Font.BOLD, 13));
+      table.setAlignmentX(Component.RIGHT_ALIGNMENT);
+      table.setShowHorizontalLines(false);
+      table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+      table.setFillsViewportHeight(true);
+      table.setRowMargin(2);
+      table.setSize(new Dimension(24, 24));
+      table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+      table.setRowHeight(24);
+      
+      table.setGridColor(Color.WHITE);
+      table.setBackground(new Color(34,47,62) );
+      table.setBorder(null);
+      table.getTableHeader().setBackground(new Color(34,47,62) );
+      table.getTableHeader().setForeground(Color.white);
+      table.getTableHeader().setBorder(null);
+      table.getTableHeader().setOpaque(false);
+      table.setSelectionBackground(new Color(0,131,143));
+      table.setSelectionForeground(Color.WHITE);
+      
+      
+      table.setModel(new DefaultTableModel(
+      	new Object[][] {
+      		{null, null, null, null},
+      		{null, null, null, null},
+      		{null, null, null, null},
+      		{null, null, null, null},
+      		{null, null, null, null},
+      		{null, null, null, null},
+      		{null, null, null, null},
+      	},
+      	new String[] {
+      		"Department's ID", "Department's Name", "Department's HOD", "No. of Students"
+      	}
+      ));
+      table.getColumnModel().getColumn(0).setPreferredWidth(90);
+      table.getColumnModel().getColumn(1).setPreferredWidth(120);
+      table.getColumnModel().getColumn(2).setPreferredWidth(120);
+      table.getColumnModel().getColumn(3).setPreferredWidth(127);
+      scrollPane.setViewportView(table);
+      
+      JLabel lblNewLabel = new JLabel("");
+      lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+      lblNewLabel.setIcon(new ImageIcon(new1.class.getResource("/imgs/plus.png")));
+      lblNewLabel.setBounds(885, 284, 24, 24);
+      Departments.add(lblNewLabel);
+      
+      JLabel label = new JLabel("");
+      label.setIcon(new ImageIcon(new1.class.getResource("/imgs/iconfinder_Delete_132192.png")));
+      label.setHorizontalAlignment(SwingConstants.CENTER);
+      label.setBounds(885, 338, 24, 24);
+      Departments.add(label);
+      
+      JLabel label_1 = new JLabel("");
+      label_1.setIcon(new ImageIcon(new1.class.getResource("/imgs/pencil.png")));
+      label_1.setHorizontalAlignment(SwingConstants.CENTER);
+      label_1.setBounds(885, 394, 24, 24);
+      Departments.add(label_1);
+      
+      JLabel label_3 = new JLabel("");
+      label_3.setIcon(new ImageIcon(new1.class.getResource("/imgs/iconfinder_Wizard_132269.png")));
+      label_3.setHorizontalAlignment(SwingConstants.CENTER);
+      label_3.setBounds(885, 451, 24, 24);
+      Departments.add(label_3);
       
       JPanel AboutUs = new JPanel();
      
@@ -239,13 +387,6 @@ public class new1 extends JFrame {
       students.setBackground(new Color(34,47,62));
       contentArea.add(students, "name_11192510052267");
       students.setLayout(null);
-      
-      JLabel lblClickToView_1 = new JLabel("Click to view courses of this student\r\n");
-
-      lblClickToView_1.setForeground(Color.WHITE);
-      lblClickToView_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-      lblClickToView_1.setBounds(79, 86, 392, 59);
-      students.add(lblClickToView_1);
       
       JLabel lblStudent = new JLabel("Student");
       lblStudent.setForeground(Color.WHITE);
@@ -414,7 +555,7 @@ HowToUseBtn.add(HowToUseLabel);
          }
       });
       lblNewLabel_1.setIcon(new ImageIcon(new1.class.getResource("/imgs/remove.png")));
-      lblNewLabel_1.setBounds(1103, 2, 18, 18);
+      lblNewLabel_1.setBounds(1153, 2, 18, 18);
       headerBar.add(lblNewLabel_1);
       
       JPanel userContent = new JPanel();
@@ -601,32 +742,6 @@ HowToUseBtn.add(HowToUseLabel);
       lbllastLogin.setFont(new Font("Yu Gothic", Font.BOLD, 14));
       lbllastLogin.setBounds(5, 44, 170, 16);
       userContent.add(lbllastLogin);
-      
-      
-      //Special Mouse Listeners for changing Department to students to courses of students
-      
-      lblClickToView.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-              Departments.setVisible(false);
-              AboutUs.setVisible(false);
-              HowToUse.setVisible(false);
-              students.setVisible(true);
-              coursesOfStudent.setVisible(false);
-        	}
-        });
-      
-      lblClickToView_1.addMouseListener(new MouseAdapter() {
-        	
-        	      	@Override
-        	      	public void mouseClicked(MouseEvent e) {
-        	            Departments.setVisible(false);
-        	            AboutUs.setVisible(false);
-        	            HowToUse.setVisible(false);
-        	            students.setVisible(false);
-        	            coursesOfStudent.setVisible(true);
-        	      	}
-        	      });
            
       
    }

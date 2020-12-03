@@ -106,14 +106,14 @@ public class login extends JFrame {
 		SMSHeading.setVerticalTextPosition(SwingConstants.BOTTOM);
 		SMSHeading.setVerticalAlignment(SwingConstants.TOP);
 		SMSHeading.setHorizontalTextPosition(SwingConstants.LEADING);
-		SMSHeading.setBounds(31, 20, 334, 29);
+		SMSHeading.setBounds(35, 211, 334, 29);
 		contentPanel.add(SMSHeading);
 		
 		JLabel LoginPic = new JLabel("");
 		LoginPic.setHorizontalAlignment(SwingConstants.CENTER);
 		LoginPic.setHorizontalTextPosition(SwingConstants.CENTER);
-		LoginPic.setIcon(new ImageIcon(login.class.getResource("/imgs/Capture.PNG")));
-		LoginPic.setBounds(1, -4, 395, 259);
+		LoginPic.setIcon(new ImageIcon(login.class.getResource("/imgs/exams-result-management.png")));
+		LoginPic.setBounds(1, -20, 395, 259);
 		contentPanel.add(LoginPic);
 		
 		JLabel shadow = new JLabel("");
