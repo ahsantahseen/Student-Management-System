@@ -549,14 +549,6 @@ private Point windowPosition = null;
       confusedBoyLogo.setBounds(402, 10, 128, 128);
       HowToUse.add(confusedBoyLogo);
       
-      JTextPane txtBigLines = new JTextPane();
-      txtBigLines.setText("Don't worry we got you covered !\r\n\r\nThe userinterface is pretty easy to understand as you can work your way around it for more comfortability,here are some buttons and what role they play in the software:\r\n\r\n");
-      txtBigLines.setForeground(Color.WHITE);
-      txtBigLines.setFont(new Font("Yu Gothic", Font.BOLD, 17));
-      txtBigLines.setBackground(new Color(34, 47, 62));
-      txtBigLines.setBounds(10, 175, 777, 122);
-      HowToUse.add(txtBigLines);
-      
       JPanel mainBoxGrid = new JPanel();
       mainBoxGrid.setBorder(new LineBorder(Color.WHITE, 3));
       mainBoxGrid.setBounds(10, 308, 891, 128);
@@ -715,6 +707,21 @@ private Point windowPosition = null;
       box8Txt.setBackground(new Color(34, 47, 62));
       box8Txt.setBounds(10, 39, 131, 73);
       box8outsideGrid.add(box8Txt);
+      
+      JLabel lblDontWorryWe = new JLabel("Don't worry we got you!");
+      lblDontWorryWe.setHorizontalAlignment(SwingConstants.LEFT);
+      lblDontWorryWe.setForeground(Color.WHITE);
+      lblDontWorryWe.setFont(new Font("Yu Gothic", Font.BOLD, 17));
+      lblDontWorryWe.setBounds(13, 191, 279, 60);
+      HowToUse.add(lblDontWorryWe);
+      
+      JTextPane txtBigLines = new JTextPane();
+      txtBigLines.setText("\r\n\r\nThe userinterface is pretty easy to understand as you can work your way around it for more comfortability,here are some buttons and what role they play in the software:\r\n\r\n");
+      txtBigLines.setForeground(Color.WHITE);
+      txtBigLines.setFont(new Font("Yu Gothic", Font.BOLD, 17));
+      txtBigLines.setBackground(new Color(34, 47, 62));
+      txtBigLines.setBounds(10, 174, 777, 123);
+      HowToUse.add(txtBigLines);
       
       JPanel students = new JPanel();
       students.addMouseListener(new MouseAdapter() {
