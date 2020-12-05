@@ -10,22 +10,24 @@ import java.util.Scanner;
 
 import com.sm.datastructures.Department;
 import com.sm.datastructures.DepartmentDS;
+import com.sm.datastructures.Student;
 
 public class main {
-	
-	//Check getAllDepartmentData Function when head and tail left
-	//Check errorLogs given make them more helpful
-	
 	public static void main(String args[]) {
 				
 		DepartmentDS dep = new DepartmentDS();
 		util u = new util(dep);
 		
-		u.ReadDepartment("C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\departments.txt");
-		u.ReadStudents("C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\students.txt");
-		u.ReadCourses("C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\courses.txt");
+		String depPath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\departments.txt";
+		String studPath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\students.txt";
+		String coursePath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\courses.txt";
 		
+		u.ReadDepartment(depPath);
+		u.ReadStudents(studPath);
 		
-		dep.WriteDepartmentToFile("C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\departments.txt");
+		dep.RemoveStudent("BCS","Asaad");
+		
+		dep.WriteDepartmentToFile(depPath);
+		dep.WriteStudentstoFile(studPath);
 	}
 }

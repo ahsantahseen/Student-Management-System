@@ -54,22 +54,23 @@ public class DepartmentDS {
 			} curr = curr.next;
 		} return null;
 	}
-		
+	
+	//DO THIS BY NAME
 	//Remove the department
-	public void Remove(int depID) {
+	public void Remove(String depName) {
 		curr = head;
 		dNode temp = curr;
-		while(curr != null && curr.data.depID != depID) {
+		while(curr != null && !curr.data.name.equals(depName)) {
 			temp = curr;
 			curr = curr.next; depCount--;
-		} try {if(curr.data.depID == head.data.depID) {
+		} try {if(curr.data.name.equals(head.data.name)) {
 			head = head.next;
-		} else if(curr.data.depID == depID) {
+		} else if(curr.data.name.equals(depName)) {
 			temp.next = curr.next;
 		} else { //could not find
 			throw new IllegalArgumentException("COULD NOT FIND NODE IN THE LIST");
 		} } catch(NullPointerException e) {
-			System.out.println("Sorry Canoot Delete What not Exists: DepID " + depID);
+			System.out.println("Sorry Canoot Delete What not Exists: DepName " + depName);
 		}
 	}
 	
@@ -99,37 +100,37 @@ public class DepartmentDS {
 	}
 	
 	//Remove Student from department
-	public void RemoveStudent(String depName , int studentID) {
+	public void RemoveStudent(String depName , String studentName) {
 		dNode search = FindByName(depName);
-		if(search != null) search.data.students.RemoveByID(studentID);
-		else throw new IllegalArgumentException("Could not find department");
+		if(search != null) search.data.students.Remove(studentName);
+		else System.out.println("Could not find the departmen " + depName + "to Remove " + studentName);
 	}
 	
 	//Insert Course of student
-	public void AddCourse(String depName , int studentID , Course data) {
+	public void AddCourse(String depName , String studentName , Course data) {
 		dNode searchNode = FindByName(depName);
-		if(searchNode != null) searchNode.data.students.AddCourse(studentID, data);
-		else System.out.println("Could not find the department " + depName + " To add course of studentID: " + studentID + " " + data.getCourseName());
+		if(searchNode != null) searchNode.data.students.AddCourse(studentName, data);
+		else System.out.println("Could not find the department " + depName + " To add course of student: " + studentName + " " + data.getCourseName());
 	}
 	
 	//Remove course of student
-	public void RemoveCourse(String depName , int StudentID , String courseName) {
+	public void RemoveCourse(String depName , String StudentName , String courseName) {
 		dNode searchNode = FindByName(depName);
-		if(searchNode != null) searchNode.data.students.RemoveCourseByName(StudentID, courseName);
+		if(searchNode != null) searchNode.data.students.RemoveCourse(StudentName, courseName);
 		else throw new IllegalArgumentException("Could not find department"); 
 	}
 	
 	//Edit student
-	public void EditStudent(String depName , int studentID , Student newData) {
+	public void EditStudent(String depName , String studentName , Student newData) {
 		dNode searchNode = FindByName(depName);
-		if(searchNode != null) searchNode.data.students.Edit(studentID, newData);
+		if(searchNode != null) { newData.department = depName; searchNode.data.students.Edit(studentName, newData); }
 		else throw new IllegalArgumentException("Could not find department"); 
 	}
 	
 	//Edit course of student
-	public void EditCourse(String depName , int studentID , int courseID , Course newData) {
+	public void EditCourse(String depName , String studentName , String courseName , Course newData) {
 		dNode searchNode = FindByName(depName);
-		if(searchNode != null) searchNode.data.students.EditCourse(studentID, courseID, newData);
+		if(searchNode != null) searchNode.data.students.EditCourse(studentName, courseName, newData);
 	}
 	
 	//Print all the departments in doubly linked list form
@@ -146,7 +147,7 @@ public class DepartmentDS {
 	public void PrintDepartmentInfo(String depName) {
 		dNode search = FindByName(depName);
 		if(search != null) search.data.PrintDepartment();
-		else throw new IllegalArgumentException("Could not find the department");
+		else System.out.println("Could not Find Department " + depName + " to Print Info About");
 	}
 	
 	//Print a Certain Departments Whole Student Info
@@ -157,9 +158,9 @@ public class DepartmentDS {
 	}
 	
 	//Find A Department's Student Courses By ID 
-	public void FindStudentCoursesByID(String depName , int studentID) {
+	public void FindStudentCoursesByID(String depName , String studentName) {
 		dNode search = FindByName(depName);
-		if(search != null) search.data.students.GetCourses(studentID);
+		if(search != null) search.data.students.GetCourses(studentName);
 		else throw new IllegalArgumentException("Could not find the department");
 	}
 	
@@ -179,7 +180,6 @@ public class DepartmentDS {
 		}
 	}
 	
-	//@NOTE: CHECK THIS FUNCTION OUT WHEN HEAD AND TAIL ARE ONLY LEFT
 	private ArrayList<Department> getAllDepartmentData() {
 		ArrayList<Department> result = new ArrayList<>();		
 		curr = head;
@@ -188,8 +188,7 @@ public class DepartmentDS {
 			curr = curr.next;
 		}  return result;
 	}
-	
-	
+		
 	public void WriteDepartmentToFile(String path) {
 		PrintWriter writer = null;
 		try {
@@ -203,39 +202,33 @@ public class DepartmentDS {
 			System.out.println(e);
 		}
 	}
-		
 	
-	/*
-	public static void main(String args[]) {
-		DepartmentDS dep = new DepartmentDS();
+	//this should give an array list of students from every department
+	public ArrayList<Student> GetAllStudentData() {
 		
-	//	dep.Insert(new Department(1,"CS"));
-	//	dep.Insert(new Department(2,"BBA"));
-	//	dep.Insert(new Department(3,"LLB"));
+		ArrayList<Student> result = new ArrayList<>();
+		curr = head;
+		while(curr != null) {
+			ArrayList<Student> theData = curr.data.students.getStudentData();
+			for(int i = 0; i <= curr.data.students.getStudentDataCount()-1;i++) {
+				result.add(theData.get(i));
+			} curr = curr.next;
+		}
 		
-		dep.AddStudent("CS", new Student(1912297, "Asaad", "Noman", "F"));
-		dep.AddStudent("CS", new Student(1912298, "Ahsan", "Khan", "G"));
-		dep.AddStudent("CS", new Student(56656, "Ali", "Noman", "F"));
-
-		dep.AddStudent("BBA", new Student(191284, "Shayan", "Ali", "F"));
-		dep.AddStudent("LLB", new Student(195555, "Moiz", "Khan", "G"));
-		
-		dep.AddCourse("CS", 1912297, new Course(1, "DLD", 3, 300, 100));
-		//dep.RemoveCourse("CS", 1912297, "DLD");
-		dep.AddCourse("CS", 1912298, new Course(1,"DLD",3,300,240));
-		
-		dep.EditStudent("CS", 1912297, new Student(1912297,"Ahmed","Noman","F"));
-		//dep.EditCourse("CS", 1912297, 1, new Course(1,"FLD",2,100,90));
-		
-		//dep.PrintDepartmentInfo("CS");
-		//dep.PrintDepartmentStudentsInfo("CS");
-		//dep.FindStudentByID("CS", 1912297);
-		
-		//dep.FindBySection("CS", "#");
-		
-		//dep.Print();
-		
-		dep.FindByCourseName("CS", "FLD");
-		
-	}*/	
+		return result;
+	}
+	
+	public void WriteStudentstoFile(String path) {
+		PrintWriter writer = null;
+		try {
+			writer = new PrintWriter(path, "UTF-8");
+			ArrayList<Student> data = GetAllStudentData();
+			for (int i = 0; i <= data.size() - 1; i++) {
+				String f = data.get(i).regID + "," + data.get(i).name + "," + data.get(i).fatherName + "," + data.get(i).section + "," + data.get(i).department;
+				writer.println(f);
+			} writer.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
 }

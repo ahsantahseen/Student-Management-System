@@ -10,7 +10,7 @@ public class Course {
    private float CourseGpa;
    private String CourseGrade;
    
-   public int studentID;
+   public String studentName;
 
    public Course(int courseID, String courseName, int courseCreditHrs, float totalMarks, float obtainedMarks) {
       super();
@@ -19,7 +19,7 @@ public class Course {
       CourseCreditHrs = courseCreditHrs;
       TotalMarks = totalMarks;
       ObtainedMarks = obtainedMarks;
-      this.studentID = 0;
+      this.studentName = "";
 
    }
 

@@ -261,6 +261,27 @@ public class CourseDS {
           }
       }
   }
+  
+  public void EditCourse(String CourseID, Course data) {
+      int pos = searchByCourseName(CourseID);
+      if (pos == -1) {
+          System.out.println("Course does not exist");
+      } else {
+          Node node;
+          if (isEmpty()) {
+              System.out.println("LIST IS EMPTY");
+          } else {
+              node = start;
+              for (int i = 1; i <= pos; i++) {
+                  if (i == pos) {
+                      node.setData(data);
+                  }
+                  node = node.getNext();
+              }
+          }
+      }
+  }
+
 
   // Prints the whole linked list of courses
   public void ViewList() {

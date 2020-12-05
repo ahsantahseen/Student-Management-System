@@ -31,6 +31,6 @@ public class Department {
 		System.out.println("---------------------------------------");
 		System.out.println("Printing " + name + " Department Students Info..");
 		System.out.println("---------------------------------------");
-		students.Print(students.getRoot());
+		students.Print();
 	}
 }

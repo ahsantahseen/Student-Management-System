@@ -60,6 +60,7 @@ public class util {
 		} fileScanner.close();
 	}
 	
+	/*
 	//FILE FORMAT: id,name,creditHour,totalMarks,ObtainedMarks,CourseGPA,CourseGrade,Student ID
 	public void ReadCourses(String path) {
 		
@@ -77,6 +78,6 @@ public class util {
 			System.out.println(e);
 		}
 		fileScanner.close();
-	}
+	}*/
 
 }

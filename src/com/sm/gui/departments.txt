@@ -1,5 +1,3 @@
-1,BCS,Zahid
-2,LLB,Ahsan
-3,LLB,Ahsan
-3,LLB,Ahsan
-3,LLB,Ahsan
+1,BCS,Hamid Meer
+2,LLB,Zahid Norr
+3,MECH,Khuaja
