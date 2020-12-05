@@ -15,7 +15,7 @@ class sNode {
 	}
 	
 	public void Print() {
-		System.out.println(data.name);
+		System.out.println(data.regID+","+data.name+","+data.fatherName+","+data.section);
 	}
 }
 
@@ -68,10 +68,23 @@ public class StudentsDS {
 		curr = head;
 		while(curr != null) {
 			if(curr.data.name.equals(studentName)) {
+				System.out.println(curr.data.name);
 				return curr;
 			} curr = curr.next;
 		} return null;
 	}
+	
+	//Find A Student By Name 
+		public void FindStudentByName(String studentName) {
+			curr = head;
+			while(curr != null) {
+				if(curr.data.name.equals(studentName)) {
+					System.out.println("STUDENT FOUND!");
+					System.out.println(curr.data.regID+","+curr.data.name+","+curr.data.fatherName+","+curr.data.section);
+					
+				} curr = curr.next;
+			} 
+		}
 	
 	public void Edit(String name , Student newData) {
 		sNode search = FindByName(name);

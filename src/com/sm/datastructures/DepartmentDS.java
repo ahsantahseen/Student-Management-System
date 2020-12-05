@@ -164,6 +164,14 @@ public class DepartmentDS {
 		else throw new IllegalArgumentException("Could not find the department");
 	}
 	
+	//Find Student in Department
+	
+	public void FindStudentInDepartment(String depName , String studentName) {
+		dNode search = FindByName(depName);
+		if(search != null) search.data.students.FindStudentByName(studentName);
+		else System.out.println("Department not found!");
+	}
+	
 	//Find Students By Section
 	public void FindBySection(String depName , String section) {
 		dNode searchNode = FindByName(depName);
