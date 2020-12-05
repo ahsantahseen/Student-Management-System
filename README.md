@@ -20,7 +20,7 @@ Our main system is divided into 3 major components with their own data structure
 
 **1. Department:** This component will have features of creating, updating and deleting of
     records of departments. The data in this component will be structured using **singly**
-    **linked list.
+    **linked list**.
     <br>
 **2. Student:** This component will have features of creating, updating and deleting of
     records of students. The data in this component will be structured using **singly linked list**.
