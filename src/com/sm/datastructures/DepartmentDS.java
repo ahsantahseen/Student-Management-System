@@ -231,4 +231,8 @@ public class DepartmentDS {
 			System.out.println(e);
 		}
 	}
+	
+	public void WriteCoursesToFile(String path) {
+		
+	}
 }

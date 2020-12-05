@@ -59,25 +59,4 @@ public class util {
 			System.out.println(e);
 		} fileScanner.close();
 	}
-	
-	/*
-	//FILE FORMAT: id,name,creditHour,totalMarks,ObtainedMarks,CourseGPA,CourseGrade,Student ID
-	public void ReadCourses(String path) {
-		
-		// @TODO: Check if file empty
-		
-		file = new File(path);
-		try {
-			fileScanner = new Scanner(file);
-			while (fileScanner.hasNextLine()) {
-				String line = fileScanner.nextLine();
-				String p[] = line.split(",");
-				this.dep.AddCourse(p[8],str2Int(p[7]),new Course(str2Int(p[0]),p[1],str2Int(p[2]),str2Float(p[3]),str2Float(p[4])));
-			}
-		} catch (IOException e) {
-			System.out.println(e);
-		}
-		fileScanner.close();
-	}*/
-
 }

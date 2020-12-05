@@ -54,7 +54,7 @@ public class StudentsDS {
 		} try {
 			if (curr.data.name == head.data.name) {
 				head = head.next;
-			} else if (curr.data.name == studentName) {
+			} else if (curr.data.name.equals(studentName)) {
 				temp.next = curr.next;
 			} else { // could not find
 				throw new IllegalArgumentException("COULD NOT FIND NODE IN THE LIST");
