@@ -23,7 +23,7 @@ public class main {
 		DepartmentDS dep = new DepartmentDS();
         util u = new util(dep);
 		
-		String depPath = "C:\\Users\\Home\\Downloads\\Student-Management-System-main\\Student-Management-System-main\\src\\com\\sm\\gui\\departments.txt";
+		String depPath = "C:\\Users\\Ahsan Tahseen\\Downloads\\Student-Management-System-main (2)\\Student-Management-System-main\\src\\com\\sm\\gui\\departments.txt";
 		
 		
 		
@@ -82,31 +82,31 @@ public class main {
 			    	break;
 			    }
 	         System.out.println("Enter Department Name:");
-	         String name=sc.nextLine()+sc.next();
+	         String name=sc.next()+sc.nextLine();
 	         System.out.println("Enter Department HOD:");
-	         String hod=sc.nextLine()+sc.next();
+	         String hod=sc.next()+sc.nextLine();
 	         dep.Insert(new Department(id, name, hod));
 	         
 		}
 		else if(selectedOption==3) {
 			System.out.println("Enter Department Name:");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			dep.Remove(name);
 	        
 		}
 		else if(selectedOption==4) {
 			System.out.println("Enter Department Name (for edit):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			System.out.println("Enter Department New Name:");
-	         String newName=sc.nextLine()+sc.next();
+	         String newName=sc.next()+sc.nextLine();
 	         System.out.println("Enter Department New HOD:");
-	         String newHod=sc.nextLine()+sc.next();
+	         String newHod=sc.next()+sc.nextLine();
 			dep.Edit(name, newName, newHod);
 			
 		}
 		else if(selectedOption==5) {
 			System.out.println("Enter Department Name (for search):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			dep.PrintDepartmentInfo(name);
 		}
 		}
@@ -119,9 +119,9 @@ public class main {
         util u = new util(dep);
 		
 		
-		String studPath = "C:\\Users\\Home\\Downloads\\Student-Management-System-main\\Student-Management-System-main\\src\\com\\sm\\gui\\students.txt";
+		String studPath = "C:\\Users\\Ahsan Tahseen\\Downloads\\Student-Management-System-main (2)\\Student-Management-System-main\\src\\com\\sm\\gui\\students.txt";
 		
-		String depPath = "C:\\Users\\Home\\Downloads\\Student-Management-System-main\\Student-Management-System-main\\src\\com\\sm\\gui\\departments.txt";
+		String depPath = "C:\\Users\\Ahsan Tahseen\\Downloads\\Student-Management-System-main (2)\\Student-Management-System-main\\src\\com\\sm\\gui\\departments.txt";
 		
 		
 		
@@ -161,12 +161,12 @@ public class main {
 	    System.out.println("============================");
 	    if(selectedOption==1) {
 			System.out.println("Enter Department Name (for search):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			dep.PrintDepartmentStudentsInfo(name);
 		}
 		else if(selectedOption==2) {
 			System.out.println("Enter Department Name (for insertion):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			System.out.println("Enter Student ID:");
 			int id;
 			 
@@ -185,25 +185,25 @@ public class main {
 			    	break;
 			    }
 	         System.out.println("Enter Student Name:");
-	         String Stdname=sc.nextLine()+sc.next();
+	         String Stdname=sc.next()+sc.nextLine();
 	         System.out.println("Enter Student Father Name:");
-	         String StdFname=sc.nextLine()+sc.next();
+	         String StdFname=sc.next()+sc.nextLine();
 	         System.out.println("Enter Student Section:");
-	         String StdSect=sc.nextLine()+sc.next();
+	         String StdSect=sc.next()+sc.nextLine();
 			dep.AddStudent(name, new Student(id, Stdname, StdFname, StdSect));
 		}
 		else if(selectedOption==3) {
 			System.out.println("Enter Department Name (for deletion):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for deletion):");
-			String Stdname=sc.nextLine()+sc.next();
+			String Stdname=sc.next()+sc.nextLine();
 			dep.RemoveStudent(DepName, Stdname);
 		}
 		else if(selectedOption==4) {
 			System.out.println("Enter Department Name (for edit):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for edit):");
-			String Stdname=sc.nextLine()+sc.next();
+			String Stdname=sc.next()+sc.nextLine();
 			int Newid;
 			 System.out.println("Enter Student New ID:");
 			 try {
@@ -221,19 +221,19 @@ public class main {
 			    	break;
 			    }
 	         System.out.println("Enter Student New Name:");
-	         String NewStdname=sc.nextLine()+sc.next();
+	         String NewStdname=sc.next()+sc.nextLine();
 	         System.out.println("Enter Student Father New Name:");
-	         String NewStdFname=sc.nextLine()+sc.next();
+	         String NewStdFname=sc.next()+sc.nextLine();
 	         System.out.println("Enter Student New Section:");
-	         String NewStdSect=sc.nextLine()+sc.next();
+	         String NewStdSect=sc.next()+sc.nextLine();
 			dep.EditStudent(DepName, Stdname,new Student(Newid, NewStdname,NewStdFname, NewStdSect));
 			
 		}
 		else if(selectedOption==5) {
 			System.out.println("Enter Department Name (for search):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for search):");
-			String Stdname=sc.nextLine()+sc.next();
+			String Stdname=sc.next()+sc.nextLine();
 			dep.FindStudentInDepartment(DepName, Stdname);
 		}
 		}
@@ -276,9 +276,9 @@ public class main {
 	    System.out.println("============================");
 	    if(selectedOption==1) {
 			System.out.println("Enter Department Name (for insertion):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for insertion):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			int CRSid;
 			 System.out.println("Enter Course ID:");
 			 try {
@@ -296,7 +296,7 @@ public class main {
 			    	break;
 			    }
 	         System.out.println("Enter Course Name:");
-	         String CRSname=sc.nextLine()+sc.next();
+	         String CRSname=sc.next()+sc.nextLine();
 	         int CRSCreditHrs;
 			 System.out.println("Enter Course Credit Hours:");
 			 try {
@@ -334,11 +334,11 @@ public class main {
 		}
 		else if(selectedOption==2) {
 			System.out.println("Enter Department Name (for edit):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for edit):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			System.out.println("Enter Course Name:");
-	        String OldCRSname=sc.nextLine()+sc.next();
+	        String OldCRSname=sc.next()+sc.nextLine();
 	        int CRSid;
 			 System.out.println("Enter New Course ID:");
 			 try {
@@ -356,7 +356,7 @@ public class main {
 			    	break;
 			    }
 	        System.out.println("Enter New Course Name:");
-	        String CRSname=sc.nextLine()+sc.next();
+	        String CRSname=sc.next()+sc.nextLine();
 	        int CRSCreditHrs;
 			 System.out.println("Enter New Course Credit Hours:");
 			 try {
@@ -395,18 +395,18 @@ public class main {
 		}
 		else if(selectedOption==3) {
 			System.out.println("Enter Department Name (for remove):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for remove):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			System.out.println("Enter Course Name (for remove):");
-	        String CRSname=sc.nextLine()+sc.next();
+	        String CRSname=sc.next()+sc.nextLine();
 	        dep.RemoveCourse(DepName, name, CRSname);
 		}
 		else if(selectedOption==4) {
 			System.out.println("Enter Department Name (for search):");
-			String DepName=sc.nextLine()+sc.next();
+			String DepName=sc.next()+sc.nextLine();
 			System.out.println("Enter Student Name (for search):");
-			String name=sc.nextLine()+sc.next();
+			String name=sc.next()+sc.nextLine();
 			dep.FindStudentCoursesByID(DepName, name);
 		}
 		
