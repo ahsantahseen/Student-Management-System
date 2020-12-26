@@ -22,10 +22,12 @@ public class main {
 		DepartmentDS dep = new DepartmentDS();
 		util u = new util(dep);
 
-		String depPath = "C:\\Users\\Ahsan Tahseen\\Downloads\\Student-Management-System-main (2)\\Student-Management-System-main\\src\\com\\sm\\gui\\departments.txt";
-
+		String depPath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\departments.txt";
+		String studPath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\students.txt";
+	
 		u.ReadDepartment(depPath);
-
+		u.ReadStudents(studPath);
+		
 		while (selectedOption != 7) {
 			System.out.println("============================");
 			System.out.println("|     Department Menu      |");
@@ -101,9 +103,10 @@ public class main {
 				dep.PrintDepartmentInfo(name);
 			} else if (selectedOption == 6) {
 				dep.SortDepartmentsAscending();
-
+				dep.Print();			
 			}
 		}
+		
 		dep.WriteDepartmentToFile(depPath);
 	}
 
@@ -113,9 +116,9 @@ public class main {
 		DepartmentDS dep = new DepartmentDS();
 		util u = new util(dep);
 
-		String studPath = "C:\\Users\\Ahsan Tahseen\\Downloads\\Student-Management-System-main (2)\\Student-Management-System-main\\src\\com\\sm\\gui\\students.txt";
+		String studPath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\students.txt";
 
-		String depPath = "C:\\Users\\Ahsan Tahseen\\Downloads\\Student-Management-System-main (2)\\Student-Management-System-main\\src\\com\\sm\\gui\\departments.txt";
+		String depPath = "C:\\Workspace\\Ongoing\\Student-Management-System\\src\\com\\sm\\gui\\departments.txt";
 
 		u.ReadDepartment(depPath);
 		u.ReadStudents(studPath);

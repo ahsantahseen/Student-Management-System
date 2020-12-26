@@ -8,8 +8,7 @@ class dNode {
 	public Department data = new Department();
 	public dNode next;
 
-	public dNode() {
-	}
+	public dNode() {}
 
 	public dNode(Department data, dNode next) {
 		this.data = data;
@@ -17,7 +16,7 @@ class dNode {
 	}
 
 	public void Print() {
-		System.out.println(data.name);
+		System.out.println(data.name + " | Students: " + data.students.getStudentCount());
 	}
 }
 
@@ -79,7 +78,7 @@ public class DepartmentDS {
 			} else if (curr.data.name.equals(depName)) {
 				temp.next = curr.next;
 			} else { // could not find
-				throw new IllegalArgumentException("COULD NOT FIND NODE IN THE LIST");
+				System.out.println("Could not find Node @ Remove Function");
 			}
 		} catch (NullPointerException e) {
 			System.out.println("Sorry Canoot Delete What not Exists: DepName " + depName);
@@ -138,7 +137,7 @@ public class DepartmentDS {
 		if (searchNode != null)
 			searchNode.data.students.RemoveCourse(StudentName, courseName);
 		else
-			throw new IllegalArgumentException("Could not find department");
+			System.out.println("Could not find Department @ Remove Course");
 	}
 
 	// Edit student
@@ -148,7 +147,7 @@ public class DepartmentDS {
 			newData.department = depName;
 			searchNode.data.students.Edit(studentName, newData);
 		} else
-			throw new IllegalArgumentException("Could not find department");
+			System.out.println("Could not find Department @ Edit Student Function");
 	}
 
 	// Edit course of student
@@ -184,7 +183,7 @@ public class DepartmentDS {
 		if (search != null)
 			search.data.PrintDepartmentStudents();
 		else
-			throw new IllegalArgumentException("Could not find the department " + depName);
+			System.out.println("Could not find Department @ Print Departments Studenent Info Function");
 	}
 
 	// Find A Department's Student Courses By Name
@@ -193,7 +192,7 @@ public class DepartmentDS {
 		if (search != null)
 			search.data.students.GetCourses(studentName);
 		else
-			throw new IllegalArgumentException("Could not find the department");
+			System.out.println("Could not find Department @ FindStudentsCoursesByName");
 
 	}
 
@@ -295,16 +294,12 @@ public class DepartmentDS {
 	public void SortDepartmentsAscending() {
 		curr = head;
 		while (curr.next != null) {
-			if (curr.data.students.getStudentCount() < curr.next.data.students.getStudentCount()) {
+			if (curr.data.students.getStudentCount() > curr.next.data.students.getStudentCount()) {
 				Department tempData = curr.data;
 				curr.data = curr.next.data;
 				curr.next.data = tempData;
-
-			}
-
-			curr = curr.next;
+			} curr = curr.next;
 		}
-
 	}
 
 }

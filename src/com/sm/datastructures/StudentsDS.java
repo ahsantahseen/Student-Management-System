@@ -57,7 +57,7 @@ public class StudentsDS {
 			} else if (curr.data.name.equals(studentName)) {
 				temp.next = curr.next;
 			} else { // could not find
-				throw new IllegalArgumentException("COULD NOT FIND NODE IN THE LIST");
+				System.out.println("Could not find Node @ Remove Function");
 			}
 		} catch (NullPointerException e) {
 			System.out.println("Sorry Canoot Delete What not Exists: Student " + studentName);
